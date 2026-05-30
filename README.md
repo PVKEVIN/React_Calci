@@ -1,5 +1,7 @@
 # Ex04 Simple Calculator - React Project
-## Date:
+## Date:27/5/26
+## Name: Kevin P
+## Register Number: 212224040159
 
 ## AIM
 To  develop a Simple Calculator using React.js with clean and responsive design, ensuring a smooth user experience across different screen sizes.
@@ -46,9 +48,110 @@ Deploy the website.
 Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
+```
+App.js
+import React, { useState } from "react";
+import "./App.css";
 
+function App() {
+  const [input, setInput] = useState("");
+
+  const handleClick = (value) => {
+    setInput(input + value);
+  };
+
+  const clear = () => setInput("");
+
+  const calculate = () => {
+    try {
+      setInput(eval(input).toString());
+    } catch {
+      setInput("Error");
+    }
+  };
+
+  return (
+    <div className="container">
+      <h1>Calculator</h1>
+
+      <input type="text" value={input} readOnly />
+
+      <div className="buttons">
+        <button onClick={clear}>C</button>
+        <button onClick={() => handleClick("/")}>/</button>
+        <button onClick={() => handleClick("*")}>*</button>
+        <button onClick={() => handleClick("-")}>-</button>
+
+        <button onClick={() => handleClick("7")}>7</button>
+        <button onClick={() => handleClick("8")}>8</button>
+        <button onClick={() => handleClick("9")}>9</button>
+        <button onClick={() => handleClick("+")}>+</button>
+
+        <button onClick={() => handleClick("4")}>4</button>
+        <button onClick={() => handleClick("5")}>5</button>
+        <button onClick={() => handleClick("6")}>6</button>
+        <button onClick={calculate}>=</button>
+
+        <button onClick={() => handleClick("1")}>1</button>
+        <button onClick={() => handleClick("2")}>2</button>
+        <button onClick={() => handleClick("3")}>3</button>
+
+        <button onClick={() => handleClick("0")}>0</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+```
+App.css
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.container {
+  width: 300px;
+  margin: 80px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  background: #00adb5;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #007b80;
+}
+```
 
 ## OUTPUT
+<img width="1639" height="810" alt="image" src="https://github.com/user-attachments/assets/1a0d4308-010b-4c81-aed0-a684725bc534" />
 
 
 ## RESULT
